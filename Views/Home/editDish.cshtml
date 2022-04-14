@@ -1,0 +1,38 @@
+@{
+    ViewData["Title"] = "Edit Dish";
+}
+@model Dish
+
+<h1 class="text-center">@Model.DishName</h1>
+<a href="/">Home</a>
+<form class="mt-5 d-flex frm" action="/post/@Model.DishId" method="post">
+<div class="flex">
+    <label class="d-block">Chef's Name: </label>
+    <span class="text-danger" asp-validation-for="ChefName"></span>
+    <input asp-for="ChefName">
+    <label class="d-block mt-3">Name of Dish:</label>
+    <span class="text-danger" asp-validation-for="DishName"></span>
+    <input asp-for="DishName">
+    <label class="d-block mt-3"># of Calories:</label>
+    <span class="text-danger d-block" asp-validation-for="Calories"></span>
+    <input asp-for="Calories">
+</div>
+<div class="flex">
+    <label class="d-block"> Tastiness: </label>
+    <span class="text-danger" asp-validation-for="Tastiness"></span>
+    <select asp-for="Tastiness">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+    </select>
+</div>
+<div class="flex">
+    <label class="d-block"> Description: </label>
+    <span class="text-danger" asp-validation-for="Description"></span>
+    <textarea asp-for="Description"  id="" cols="30" rows="10"></textarea>
+    <input class="d-block submit btn btn-primary" type="submit" value="Edit Dish">
+</div>
+</form>
+
